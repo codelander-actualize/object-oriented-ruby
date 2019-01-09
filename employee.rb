@@ -12,32 +12,14 @@
 
 # Represent an employee using a class
 class Employee
+	# attr_accessor :first_name, :last_name, :salary, :active
+	attr_reader :first_name, :last_name, :salary, :active
+	attr_writer :active
+
 	def initialize(input_first_name, input_last_name, input_salary, input_active)
 		@first_name = input_first_name
 		@last_name = input_last_name
 		@salary = input_salary
-		@active = input_active
-	end
-
-	# getters/readers
-	def first_name
-		@first_name
-	end
-
-	def last_name
-		@last_name
-	end
-
-	def salary
-		@salary
-	end
-
-	def active
-		@active
-	end
-
-	# setters/writers
-	def active=(input_active)
 		@active = input_active
 	end
 
@@ -53,13 +35,13 @@ end
 
 employee1 = Employee.new("Majora", "Carter", 80000, true)
 employee2 = Employee.new("Danilo", "Campos", 70000, true)
-# employee1.print_info
-# employee1.give_annual_raise
-# employee2.print_info
-# employee2.give_annual_raise
-# puts employee2.first_name
-# puts employee2.last_name
-# puts employee2.salary
+employee1.print_info
+employee1.give_annual_raise
+employee2.print_info
+employee2.give_annual_raise
+puts employee2.first_name
+puts employee2.last_name
+puts employee2.salary
 puts employee2.active
 employee2.active = false
 puts employee2.active
