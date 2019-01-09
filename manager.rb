@@ -25,6 +25,14 @@ employee2 = Employee.new({first_name: "Danilo", last_name: "Campos", salary: 700
 
 
 class Manager < Employee
+
+	attr_accessor :employees
+
+	def initialize(input_options)
+		super
+		@employees = input_options[:employees]
+	end
+
 	def send_report
 		puts "Sending very confidential important email..."
 		# use some email sending library
@@ -32,6 +40,6 @@ class Manager < Employee
 	end
 end
 
-manager = Manager.new(first_name: "Melissa", last_name: "Kotler", salary: 100000, active: true)
+manager = Manager.new(first_name: "Melissa", last_name: "Kotler", salary: 100000, active: true, employees: [employee1, employee2])
 manager.print_info
 manager.send_report
