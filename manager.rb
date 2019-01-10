@@ -12,7 +12,6 @@ class Employee
 
 	def give_annual_raise
 		@salary = 1.05 * @salary
-		puts @salary
 	end
 
 	def print_info
@@ -38,8 +37,25 @@ class Manager < Employee
 		# use some email sending library
 		puts "Done!"
 	end
+
+	def give_all_raises
+		# loop through employees array and call the give_annual_raise method on each employee
+		employees.each do |employee|
+			employee.give_annual_raise
+		end
+	end
+
+	def fire_all_employees
+		employees.each do |employee|
+			employee.active = false
+		end
+	end
+
 end
 
 manager = Manager.new(first_name: "Melissa", last_name: "Kotler", salary: 100000, active: true, employees: [employee1, employee2])
-manager.print_info
-manager.send_report
+# manager.print_info
+# manager.send_report
+manager.fire_all_employees
+puts employee1.active
+puts employee2.active
