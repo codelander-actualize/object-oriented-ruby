@@ -32,13 +32,20 @@ class Car < Vehicle
 end
 
 class Bike < Vehicle
+  attr_reader :type, :weight
+  def initialize(input_options)
+    super()
+    @type = input_options[:type]
+    @weight = input_options[:weight]
+  end
   def ring_bell
     puts "Ring ring!"
   end
 end
 
-bike = Bike.new
+bike = Bike.new(type: "Mountain", weight: 23)
 bike.ring_bell
+puts bike.type
 car = Car.new(fuel: "Diesel", make: "Ford", model: "F150")
 car.honk_horn
 puts car.fuel
