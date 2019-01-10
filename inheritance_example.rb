@@ -18,6 +18,14 @@ class Vehicle
 end
 
 class Car < Vehicle
+  attr_reader :fuel, :make, :model
+  def initialize(input_options)
+    super()
+    @fuel = input_options[:fuel]
+    @make = input_options[:make]
+    @model = input_options[:model]
+  end
+
   def honk_horn
     puts "Beeeeeeep!"
   end
@@ -31,5 +39,6 @@ end
 
 bike = Bike.new
 bike.ring_bell
-car = Car.new
+car = Car.new(fuel: "Diesel", make: "Ford", model: "F150")
 car.honk_horn
+puts car.fuel
